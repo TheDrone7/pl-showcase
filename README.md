@@ -1,5 +1,7 @@
 # jam-showcase
 
+[![Run on Repl.it](https://repl.it/badge/github/TheDrone7/pl-showcase)](https://repl.it/github/TheDrone7/pl-showcase)
+
 ## Build Setup
 
 ```bash
