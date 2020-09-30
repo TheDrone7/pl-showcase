@@ -1,2 +1,2 @@
-language = "nodejs"
-run = "yarn dev"
+language = "bash"
+run = "sh main.sh"
