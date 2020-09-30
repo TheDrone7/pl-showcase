@@ -19,6 +19,12 @@ export default {
         if (post)
             doc = await $content(params.id || 'test').fetch();
         return { post , doc };
+    },
+    head() {
+      return {
+        title: this.post.name + ' | Repl.it PL Jam',
+        description: this.post.desc
+      }
     }
 }
 </script>

@@ -1,12 +1,15 @@
 
 export default {
   target: 'server',
+  server: {
+    host: '0.0.0.0'
+  },
   head: {
     title: 'Repl.it PL Jam',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: process.env.npm_package_description || '' }
+      { hid: 'description', name: 'description', content: 'Repl.it Programming Language Jam Showcase.' }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
