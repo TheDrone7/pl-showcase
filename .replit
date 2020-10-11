@@ -1,2 +1,5 @@
-language = "bash"
-run = "sh main.sh"
+language = "nodejs"
+run = "yarn start"
+
+[packager]
+ignoredPaths=[".nuxt"]
