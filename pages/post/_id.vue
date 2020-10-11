@@ -2,7 +2,14 @@
     <div class="app">
         <div class="post-body">
             <jumbotron :title="post.name" :subtitle="post.desc + '<br /><br/>&#8212;<a href=\'https://repl.it/@' + post.team + '\'>' + post.team + '</a>'" :link="post.post" />
-            <big-card title="A Sample Program" icon="info" tooltip="This code is prone to change. Please refer to the official documentation of the language for confirmation.">
+            <big-card title="Judges remarks" v-if="post.comments">
+                <div class="card-alert">
+                    <vs-alert color="dark">
+                        <p>{{post.comments}}</p>
+                    </vs-alert>
+                </div>
+            </big-card>
+            <big-card title="A Sample Program" tooltip="This code is prone to change. Please refer to the official documentation of the language for confirmation.">
                 <nuxt-content :document="doc" />
             </big-card>
         </div>
@@ -16,14 +23,20 @@ export default {
     async asyncData({ $content, params }) {
         let post = posts.flat().find(p => p.id === params.id);
         let doc;
-        if (post)
+        if (post) {
             doc = await $content(params.id || 'test').fetch();
+            if (post.results) post.results['Total'] = post.results['Freshness'] + post.results['Value'] + post.results['Technical'] + post.results['Polish']
+        }
         return { post , doc };
     },
     head() {
       return {
         title: this.post.name + ' | Repl.it PL Jam',
-        description: this.post.desc
+        meta: [
+            { charset: 'utf-8' },
+            { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+            { hid: 'description', name: 'description', content: this.post.desc }
+        ],
       }
     }
 }
@@ -32,7 +45,7 @@ export default {
 <style scoped>
 
 .post-body {
-    margin-top: 4rem;
+    margin: 2rem 0;
 }
 .post-desc {
     font-size: 1rem;
@@ -47,5 +60,13 @@ export default {
 .nuxt-content code {
     color: #c00;
     font-family: 'Inconsolata', monospace;
+}
+
+.nuxt-content a {
+    margin: 0 !important;
+}
+
+.card-alert {
+    margin: 1rem 0;
 }
 </style>

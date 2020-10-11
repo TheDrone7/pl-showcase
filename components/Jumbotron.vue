@@ -24,14 +24,14 @@ export default {
 <style scoped>
 .jumbotron {
     background-color: #ffffff;
-    margin: 2rem;
+    margin: 0 2rem;
     padding: 0;
     border-radius: 4px;
     box-shadow: 0 0 16px 4px #0003;
 }
 
 .jumbo-content {
-    padding: 3rem 4rem;
+    padding: 3rem 4rem 1rem;
 }
 
 .jumbo-buttons {

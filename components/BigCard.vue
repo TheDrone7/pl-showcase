@@ -1,5 +1,5 @@
 <template>
-  <vs-tooltip>
+  <vs-tooltip v-if="this.tooltip">
     <div class="big-card">
       <div class="card-title">{{title}}</div>
       <div class="card-content">
@@ -8,6 +8,12 @@
     </div>
     <template #tooltip>{{tooltip}}</template>
   </vs-tooltip>
+  <div class="big-card" v-else>
+    <div class="card-title">{{title}}</div>
+    <div class="card-content">
+      <slot />
+    </div>
+  </div>
 </template>
 
 <script>

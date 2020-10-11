@@ -5,8 +5,7 @@
         <vs-button relief size="large" square @click="openBlog()">Show Post</vs-button>
       </div>
     </div>
-    <div class="title">Featured posts</div>
-    
+    <div class="page-headers"><div class="title">Featured posts</div></div>
     <div class="posts">
       <a v-for="lang in featured" :key="lang.name" :href="'post/' + lang.id">
         <vs-tooltip>
